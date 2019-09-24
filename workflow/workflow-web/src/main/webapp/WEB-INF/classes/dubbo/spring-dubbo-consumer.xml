@@ -1,0 +1,17 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	   http://code.alibabatech.com/schema/dubbo
+	   http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 提供方应用信息，用于计算依赖关系 （见spring-dubbo-provider.xml）-->
+
+    <!-- 使用zookeeper注册中心暴露服务地址 （见spring-dubbo-provider.xml）-->
+
+    <dubbo:consumer check="false" timeout="20000" loadbalance="roundrobin" retries="0" validation="true"
+                    group="${dubbo.consumer.default.group}" version="${dubbo.consumer.default.version}"/>
+
+    <dubbo:reference interface="com.zhouwei.ruleengine.rpc.RuleEngineRpcService" id="ruleEngineRpcService" validation="true" />
+</beans>
