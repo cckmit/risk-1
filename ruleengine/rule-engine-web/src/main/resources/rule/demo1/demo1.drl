@@ -1,0 +1,29 @@
+dialect  "mvel"
+
+import com.zhouwei.ruleengine.dto.UserDTO;
+
+global com.zhouwei.ruleengine.dto.InOutDTO inOutDTO
+
+
+rule "demo1Drools"
+    when
+        eval(true)
+    then
+        System.out.println("this is demo1");
+end
+
+rule "adult"
+    when
+        m : UserDTO(age >= 18)
+    then
+      System.out.println("=========You're an adult now. You shouldn't borrow money.========");
+      inOutDTO.rejectDecision();
+end
+
+rule "youngPeople"
+    when
+        m : UserDTO(age <= 18)
+    then
+      System.out.println("=========hey, you are  young people========");
+      inOutDTO.approveDecision();
+end

@@ -25,7 +25,8 @@ public class RuleEngineRpcServiceImpl implements RuleEngineRpcService {
         InOutDTO inOutDTO = new InOutDTO();
         KieServices kieServices = KieServices.Factory.get();
         KieContainer kieContainer = kieServices.getKieClasspathContainer();
-        KieSession kieSession = kieContainer.newKieSession("helloWorldSession");
+        //KieSession kieSession = kieContainer.newKieSession("helloWorldSession");
+        KieSession kieSession = kieContainer.newKieSession("demo1Session");
         kieSession.setGlobal("inOutDTO", inOutDTO);
         //加入数据
         kieSession.insert(user);

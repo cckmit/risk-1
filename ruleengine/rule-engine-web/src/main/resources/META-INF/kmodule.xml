@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <kmodule xmlns="http://www.drools.org/xsd/kmodule">
-    <kbase name="helloWorldBase">
+    <kbase name="helloWorldBase" packages="rule.helloWorld">
         <ksession name="helloWorldSession"/>
+    </kbase>
+
+    <kbase name="demo1" packages="rule.demo1">
+        <ksession name="demo1Session"/>
     </kbase>
 </kmodule>
